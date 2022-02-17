@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>
-        Acceso Denegado
+        Benjamin Hotcake
     </h1>
 
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
@@ -24,10 +24,18 @@
 
         });
 
-        socket.emit('mensaje',{nombre: 'Jhonatan'});
+        // socket.emit('mensaje',{nombre: 'Jhonatan'});
         socket.on('mensaje', function(payload){
-            console.log('Escuchando', payload)
-        })
+            console.log('Escuchando', payload);
+        });
+        socket.on('nuevo-mensaje', function(payload){
+            console.log('Escuchando:', payload);
+        });
+
+        socket.on('active-bands', function(bands){
+            console.clear();
+            console.table(bands);
+        });
 
     </script>
 </body>
